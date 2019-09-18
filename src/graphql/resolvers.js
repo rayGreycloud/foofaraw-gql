@@ -1,5 +1,6 @@
 import { gql } from 'apollo-boost';
 
+import { GET_CART_HIDDEN, GET_ITEM_COUNT, GET_CART_ITEMS } from './queries';
 import { addItemToCart, getCartItemCount } from './cart.utils';
 
 export const typeDefs = gql`
@@ -10,24 +11,6 @@ export const typeDefs = gql`
   extend type Mutation {
     ToggleCartHidden: Boolean!
     AddItemToCart(item: Item!): [Item]!
-  }
-`;
-
-const GET_CART_HIDDEN = gql`
-  {
-    cartHidden @client
-  }
-`;
-
-const GET_ITEM_COUNT = gql`
-  {
-    itemCount @client
-  }
-`;
-
-const GET_CART_ITEMS = gql`
-  {
-    cartItems @client
   }
 `;
 
