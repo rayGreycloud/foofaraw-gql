@@ -48,14 +48,39 @@ export const GET_ITEM_COUNT = gql`
   }
 `;
 
+export const GET_CART_TOTAL = gql`
+  {
+    cartTotal @client
+  }
+`;
+
 export const GET_CART_ITEMS = gql`
   {
     cartItems @client
   }
 `;
 
+export const GET_CART_ITEMS_AND_TOTAL = gql`
+  {
+    cartItems @client
+    cartTotal @client
+  }
+`;
+
 export const ADD_ITEM_TO_CART = gql`
   mutation AddItemToCart($item: Item!) {
     addItemToCart(item: $item) @client
+  }
+`;
+
+export const REMOVE_ITEM_TO_CART = gql`
+  mutation RemoveItemToCart($item: Item!) {
+    removeItemToCart(item: $item) @client
+  }
+`;
+
+export const CLEAR_ITEM_TO_CART = gql`
+  mutation ClearItemToCart($item: Item!) {
+    clearItemToCart(item: $item) @client
   }
 `;

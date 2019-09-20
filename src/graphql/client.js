@@ -3,6 +3,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-boost';
 
 import { resolvers, typeDefs } from './resolvers';
+import { INITIAL_DATA } from './initial-data';
 
 const httpLink = createHttpLink({
   uri: 'https://crwn-clothing.com'
@@ -18,11 +19,7 @@ const client = new ApolloClient({
 });
 
 client.writeData({
-  data: {
-    cartHidden: true,
-    cartItems: [],
-    itemCount: 0
-  }
+  data: INITIAL_DATA
 });
 
 export default client;
